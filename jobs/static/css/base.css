@@ -1,3 +1,18 @@
-nav {
-    margin-bottom: 40px;
+.container {
+    margin-top: 40px;
+}
+body {
+    background: #F2F3F4;
+}
+
+.company-image img {
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+}
+.card-section {
+    background: white
+}
+form{
+    color: white;
 }

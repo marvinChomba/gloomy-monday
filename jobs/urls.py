@@ -11,5 +11,6 @@ urlpatterns = [
     path("reset/complete/",auth_views.PasswordResetCompleteView.as_view(),name="password_reset_complete"),
     path("password_change/",auth_views.PasswordChangeView.as_view(),name="password_change"),
     path("password_change/done/",auth_views.PasswordChangeDoneView.as_view(),name="password_change_done"),
-    path("home",views.home,name="home")
+    path("",views.home,name="home"),
+    path("job/<int:id>/",views.single_job,name="single_job")
 ]

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load widget_tweaks %}
+
+{% block content %}
+{% include 'filter.html' %}
+<div class="container">
+    <h3 class="text-center">Available Jobs</h3>
+    {% for job in jobs %}
+    <div class="card mb-5">
+        <div class="card-header card-section">
+            <h5>{{job.title}}</h5>
+            <p><a href="#">{{job.company}}</a></p>
+            <p>{{job.location.name.capitalize}} | {{job.time}} </p>
+            <p>Category: {{job.category.name.upper}}</p>
+        </div>
+        <div class="card-body" style="display:flex;justify-content: space-around;align-items: flex-start">
+            <div class="company-image">
+                <img src="{{job.company_pic.cdn_url}}" alt="">
+            </div>
+            <div class="summary">
+                <p>{{job.summary}}</p>
+            </div>
+        </div>
+        <div class="card-footer card-section" style="display:flex;justify-content:flex-end; border:none">
+            <a href="{{job.get_absolute_url}}" class="btn btn-info">More Details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

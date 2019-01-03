@@ -1,0 +1,24 @@
+{% load widget_tweaks %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-info py-2">
+    <a class="navbar-brand" href="{% url 'home' %}">Find A Job</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline" action="{% url 'home' %}" novalidate>
+            {% for field in form %}
+            <div class="form-group mr-5 text-white">
+                {{field.label_tag}}
+                {% render_field field class='ml-3 form-control'%}
+            </div>
+            {% endfor %}
+            <div class="text-center">
+                <input type="submit" value="Filter" class="py-2 btn btn-secondary">
+            </div>
+        </form>
+
+    </div>
+</nav>

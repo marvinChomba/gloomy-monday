@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% load job_tags %}
+{% block content %}
+    <div class="container">
+        <div class="card mb-5">
+            <div class="card-header card-section" style="display:flex;justify-content: flex-start">
+                <div class="company-image mr-5">
+                    <img src="{{job.company_pic.cdn_url}}" alt="">
+                </div>
+                <div class="company-details">
+                    <h4>{{job.title}}</h4>
+                    <p>{{job.company}}</p>
+                    <p>{{job.category.name}}</p>
+                    <p>{{job.location.name}} | {{job.time}}</p>
+                </div>
+            </div>
+            <div class="card-body">
+                <h5>Description</h5>
+                {{job.description | to_markdown }}
+                <hr style="width: 100%">
+                <h5>Requirements</h5>
+                {{job.requirements|to_markdown}}
+            </div>
+            <div class="card-footer card-section" style="display: flex;justify-content: center">
+                <a href="#" class="btn btn-info mr-3">Apply</a>
+                <a href="#" class="btn btn-dark">Share Job</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
